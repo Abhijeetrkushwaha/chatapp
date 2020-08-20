@@ -1,9 +1,12 @@
 import React from 'react';
-// import './App.css';
+import './App.css';
+import AddText from './components/AddText'
+
+
 function App() {
   return (
     <div className="App">
-      <h1>Hi  bye bye</h1>
+      <AddText />
     </div>
   );
 }
