@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Messages({ message}) {
+function Messages({ message, username}) {
     
 
     return (
         <div>
-           <p>message: {message} </p>
+           <p className="message"><span className="blue-text">{username}</span> <br/> {message}</p>
         </div>
     )
 }
