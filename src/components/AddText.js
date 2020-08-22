@@ -23,7 +23,7 @@ const AddText = () => {
 
     const text = messages ? (
         messages.map((message) => {
-            return <Messages message={message.text} username={message.username} key={Math.random()} />
+            return <Messages message={message} username={username} key={Math.random()} />
         })
     ) : null ;
 

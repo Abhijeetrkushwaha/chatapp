@@ -2,10 +2,14 @@ import React from 'react'
 
 function Messages({ message, username}) {
     
+    const  isUser = username === message.username
 
     return (
-        <div>
-           <p className="message"><span className="blue-text">{username}</span> <br/> {message}</p>
+        <div className={`message ${isUser && 'message-user'}`}>
+            <span className={isUser ? "user-right" : "user-left"}>{message.username}</span> <br/>
+            <p className={`message-content ${isUser ? "message-user-card" : 'message-guest-card'}`}>
+                {message.text}
+            </p>
         </div>
     )
 }

@@ -1,7 +1,9 @@
 body{
   background-color: #506DFF;
 }
-
+p{
+  font-size: 15px;
+}
 form{
   display: flex;
   align-items: center;
@@ -18,15 +20,41 @@ form{
   padding-left: 20px;
   padding-right: 20px;
 }
+
 input[type=text]:not(.browser-default):focus:not([readonly]){
   border-color: blue;
     box-shadow: none;
 }
 
 .message{
-  background-color: rgb(202, 202, 202);
-  max-width: 200px;
-  padding: 10px 20px;
+  width: fit-content;
+}
+.message-content{
+  padding: 5px 20px;
+  margin: 0;
+  border-radius: 15px;
   margin-bottom: 20px;
-  border-radius: 20px;
+}
+.message-user{
+  margin-left: auto;
+  color: white;
+  text-align: left !important;
+}
+
+.message-user-card{
+  background-color: blue !important;
+}
+
+.message-guest-card{
+  background-color: rgb(172, 172, 172) !important;
+}
+
+.user-right{
+  float: right;
+  margin-right: 5px;
+  color: black;
+}
+
+.user-left{
+  margin-left: 5px;
 }
