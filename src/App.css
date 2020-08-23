@@ -1,5 +1,8 @@
+html{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 body{
-  background-color: #506DFF;
+  background-color: #313131;
 }
 p{
   font-size: 15px;
@@ -28,9 +31,10 @@ input[type=text]:not(.browser-default):focus:not([readonly]){
 
 .message{
   width: fit-content;
+  max-width: 200px;
 }
 .message-content{
-  padding: 5px 20px;
+  padding: 2px 20px;
   margin: 0;
   border-radius: 15px;
   margin-bottom: 20px;
@@ -46,15 +50,23 @@ input[type=text]:not(.browser-default):focus:not([readonly]){
 }
 
 .message-guest-card{
-  background-color: rgb(172, 172, 172) !important;
+  background-color: rgb(221, 221, 221) !important;
+  color: blue;
 }
 
 .user-right{
   float: right;
   margin-right: 5px;
-  color: black;
+  color: white;
 }
 
 .user-left{
   margin-left: 5px;
+  color: white;
+}
+
+@media screen and (min-width: 789px){
+  p{
+    font-size: 20px;
+  }
 }
