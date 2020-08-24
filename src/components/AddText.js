@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Messages from './Messages'
-// import db from '../firebase';
-// import firebase from 'firebase'
+import db from '../firebase';
+import firebase from 'firebase'
 
 const AddText = () => {
     
     const [input, setInput] = useState('')
     const [messages, setMessages] = useState([
-        {text: 'hi', username: 'ram', id: 123}
     ]);
     const [username, setUser] = useState('');
     const [id, setId] = useState(null)
@@ -40,29 +39,30 @@ const AddText = () => {
 
     }, [])
 
-    // useEffect(() => {
-    //     db.collection('messages')
-    //     .orderBy('timestamp', 'desc')
-    //     .onSnapshot(snapshot =>{
-    //         setMessages(snapshot.docs.map(doc => doc.data()))
-    //     })
-    // }, [] )
+    useEffect(() => {
+        db.collection('messages')
+        .orderBy('timestamp', 'desc')
+        .onSnapshot(snapshot =>{
+            setMessages(snapshot.docs.map(doc => doc.data()))
+        })
+    }, [] )
 
     const sendMessage = (e) => {
 
         e.preventDefault()
-        setMessages([...messages, {username: username, text: input, id: id}])
-        // db.collection('messages').add({
-        //     text: input,
-        //     username: username,
-        //     timestamp: firebase.firestore.FieldValue.serverTimestamp()
-        // })
+        // setMessages([...messages, {username: username, text: input, id: id}])
+        db.collection('messages').add({
+            text: input,
+            username: username,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            id: id
+        })
         setInput('')
     }
 
     const handleChange = (e) => {
         let localData = JSON.parse(localStorage.getItem("USERNAME"))
-        let newUserName = prompt("Please enter your name")
+        let newUserName = prompt("Please enter your new username")
         let userDetails = {id: localData.id, username: newUserName}
         localStorage.setItem("USERNAME", JSON.stringify(userDetails))
         setUser(newUserName)
