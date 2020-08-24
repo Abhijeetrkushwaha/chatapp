@@ -63,9 +63,11 @@ const AddText = () => {
     const handleChange = (e) => {
         let localData = JSON.parse(localStorage.getItem("USERNAME"))
         let newUserName = prompt("Please enter your new username")
-        let userDetails = {id: localData.id, username: newUserName}
-        localStorage.setItem("USERNAME", JSON.stringify(userDetails))
-        setUser(newUserName)
+        if(newUserName) {
+            let userDetails = {id: localData.id, username: newUserName}
+            localStorage.setItem("USERNAME", JSON.stringify(userDetails))
+            setUser(newUserName)
+        }
     }
 
     const text = messages ? (
