@@ -80,7 +80,7 @@ const AddText = () => {
     return (
         <div className="dashboard">
             <form onSubmit={sendMessage}>
-                <input type="text" value={input} onChange={e => setInput(e.target.value)} placeholder="Type a message" />
+                <input className="white-text" type="text" value={input} onChange={e => setInput(e.target.value)} placeholder="Type a message" />
                 <button disabled={!input} className="btn-small btn-style z-depth-1 black">Send</button>
             </form>
             <div className="center">
