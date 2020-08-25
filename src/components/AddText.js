@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Messages from './Messages'
 import db from '../firebase';
 import firebase from 'firebase'
+import Loader from './Loader'
 
 const AddText = () => {
     
     const [input, setInput] = useState('')
-    const [messages, setMessages] = useState([
-    ]);
+    const [messages, setMessages] = useState([]);
     const [username, setUser] = useState('');
     const [id, setId] = useState(null)
 
@@ -50,7 +50,7 @@ const AddText = () => {
     const sendMessage = (e) => {
 
         e.preventDefault()
-        // setMessages([...messages, {username: username, text: input, id: id}])
+        setMessages([...messages, {username: username, text: input, id: id}])
         db.collection('messages').add({
             text: input,
             username: username,
@@ -70,11 +70,11 @@ const AddText = () => {
         }
     }
 
-    const text = messages ? (
+    const text = messages.length ? (
         messages.map((message) => {
             return <Messages message={message} id={id} key={Math.random()} />
         })
-    ) : null ;
+    ) : <Loader /> ;
     // username={username}
 
     return (
