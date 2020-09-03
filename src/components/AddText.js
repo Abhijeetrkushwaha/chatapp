@@ -50,14 +50,18 @@ const AddText = () => {
     const sendMessage = (e) => {
 
         e.preventDefault()
-        setMessages([...messages, {username: username, text: input, id: id}])
-        db.collection('messages').add({
-            text: input,
-            username: username,
-            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-            id: id
-        })
+        if(input.trim().length > 0){
+            setMessages([...messages, {username: username, text: input, id: id}])
+            db.collection('messages').add({
+                text: input,
+                username: username,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                id: id
+            })
         setInput('')
+        } else {
+            setInput('')
+        }
     }
 
     const handleChange = (e) => {
